@@ -23,6 +23,7 @@ const initialFriends = [
 
 export default function App() {
   const [showAddFriend, setShowAddFriend] = useState(false);
+
   // const [showSplitBill, setShowSplitBill] = useState(false);
 
   const handleShowAddFriend = () => {
@@ -84,13 +85,26 @@ function Button({ children, onClick }) {
 }
 
 function FormAddFriend() {
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+
   return (
     <form className="form-add-friend">
       <label>🧑‍🤝‍🧑 Friend Name</label>
-      <input type="text" placeholder="Enter Friend Name" />
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter Friend Name"
+      />
 
       <label>😎 Image URL</label>
-      <input type="text" placeholder="Enter Image URL" />
+      <input
+        type="text"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+        placeholder="Enter Image URL"
+      />
       <Button>Add</Button>
     </form>
   );
